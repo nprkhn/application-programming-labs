@@ -1,3 +1,5 @@
+from icrawler.builtin import BingImageCrawler
+
 def Download(word: str, count: int, destination: str) -> None:
     """
     Скачиваем изображения.
@@ -6,7 +8,6 @@ def Download(word: str, count: int, destination: str) -> None:
     :count - количество скачиваемых изображений
     :destination - путь, по которому скачиваются изображения
     """
-    from icrawler.builtin import BingImageCrawler
 
     bing_crawler = BingImageCrawler(storage={'root_dir': destination})
     bing_crawler.crawl(keyword=word, max_num=count)

@@ -2,6 +2,12 @@ import csv
 import os
 
 def Annotation(annotation: str, directory: str) -> None:
+    """
+    Создаем аннотацию.
+
+    :annotation - путь, по которому будет записываться аннотация
+    :directory - директория, в которой находятся изображения
+    """
     with open(annotation, 'w', newline='', encoding = 'utf-8') as csvfile:
         fieldnames = ['Relative path', 'Absolute path']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
