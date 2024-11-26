@@ -12,6 +12,9 @@ def main():
 
         Download(word, count, destination)
         Annotation(annotation_file, destination)
+        iterator = ImageIterator(destination)
+        for image in iterator:
+            print(image)
     except:
         print("Invalid parametres")
 
