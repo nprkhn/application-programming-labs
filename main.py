@@ -1,8 +1,8 @@
-from read_image import ReadImage
-from histogram import Histogram
 from flip_image import FlipImage
-from save_result import SaveResult
+from histogram import Histogram
+from read_image import ReadImage
 from input_info import InputInfo
+from save_result import SaveResult
 from size import Size
 
 def main() -> None:
