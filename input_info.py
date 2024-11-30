@@ -2,18 +2,14 @@ import argparse
 
 def InputInfo():
     """
-    Считываем аргументы, переданные пользователем через консоль.
+    Вводим данные через консоль
 
-    word - слово, по которому будем скачивать изображения
-    count - количество изображений
-    destination - путь, куда будем скачивать изображения
-    annotation - путь, куда будет записана аннотация
+    :image_path - путь к файлу с изображением
+    :result-path - путь к файлу для сохранения результата работы функции FlipImage
     """
     parser = argparse.ArgumentParser()
-    parser.add_argument('word', type=str, help='Word')
-    parser.add_argument('count', type=int, help='Count images')
-    parser.add_argument('destination', type=str, help='Directory to download')
-    parser.add_argument('annotation', type=str, help='Annotation file')
+    parser.add_argument('image_path', type=str, help='image')
+    parser.add_argument('result_path', type=str, help='result')
     args = parser.parse_args()
 
     return args
