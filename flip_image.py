@@ -1,44 +1,32 @@
 import cv2
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 
-def FlipImage(image: np.ndarray) -> tuple:
+
+def FlipImage(image: np.ndarray, param: int) -> np.ndarray:
     """
     Отображаем изображение относительно различных осей
 
     :image - считанное изображение в виде многомерного массива
     """
-    flip_horizontal = cv2.flip(image, 1)
-    flip_vertical = cv2.flip(image, 0)
-    flip_both = cv2.flip(image, -1)
+    flip_image = cv2.flip(image, param)
 
-    image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-    flip_horizontal_rgb = cv2.cvtColor(flip_horizontal, cv2.COLOR_BGR2RGB)
-    flip_vertical_rgb = cv2.cvtColor(flip_vertical, cv2.COLOR_BGR2RGB)
-    flip_both_rgb = cv2.cvtColor(flip_both, cv2.COLOR_BGR2RGB)
+    return flip_image
+
+def ShowFlipImage(flip_image: np.ndarray, original: np.ndarray) -> None:
+    image_rgb = cv2.cvtColor(original, cv2.COLOR_BGR2RGB)
+    flip_image_rgb = cv2.cvtColor(flip_image, cv2.COLOR_BGR2RGB)
 
     plt.figure(figsize=(12,8))
 
-    plt.subplot(2,2,1)
+    plt.subplot(1,2,1)
     plt.imshow(image_rgb)
     plt.title("Original")
     plt.axis('off')
     
-    plt.subplot(2,2,2)
-    plt.imshow(flip_horizontal_rgb)
-    plt.title("Horizontal flip")
-    plt.axis('off')
-
-    plt.subplot(2,2,3)
-    plt.imshow(flip_vertical_rgb)
-    plt.title("Vertical flip")
-    plt.axis('off')
-
-    plt.subplot(2,2,4)
-    plt.imshow(flip_both_rgb)
-    plt.title("Both flip")
+    plt.subplot(1,2,2)
+    plt.imshow(flip_image_rgb)
+    plt.title("Flipped image")
     plt.axis('off')
 
     plt.show()
-
-    return [flip_horizontal, flip_vertical, flip_both]

@@ -8,6 +8,5 @@ def ReadImage(file: str) -> np.ndarray:
     :file - путь к файлу с изображением
     """
     img = cv2.imread(file)
-    img = cv2.resize(img, (900, 540))
 
     return img
